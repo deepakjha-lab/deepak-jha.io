@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Deepak Kumar Jha | Biomedical Scientist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --navy: #0D2340;
+      --navy-mid: #1a3a5c;
+      --gold: #C4943A;
+      --gold-light: #e8c07a;
+      --off-white: #F7F4EF;
+      --text-dark: #1a1a1a;
+      --text-mid: #4a4a4a;
+      --text-muted: #7a7a7a;
+      --border: rgba(0,0,0,0.08);
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--off-white); color: var(--text-dark); }
+
+    /* NAV */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--navy);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2.5rem; height: 64px;
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px; font-weight: 500; color: #fff; letter-spacing: 0.02em;
+    }
+    .nav-logo span { color: var(--gold-light); }
+    .nav-links { display: flex; gap: 2rem; }
+    .nav-links a {
+      font-size: 13px; color: rgba(255,255,255,0.75); text-decoration: none;
+      letter-spacing: 0.08em; text-transform: uppercase; font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--gold-light); }
+
+    /* HERO */
+    .hero-bg { background: var(--navy); }
+    .hero {
+      padding: 5rem 2.5rem 4rem;
+      display: grid; grid-template-columns: 1fr auto; gap: 3rem; align-items: center;
+      max-width: 1100px; margin: 0 auto;
+    }
+    .hero-eyebrow {
+      font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--gold); font-weight: 500; margin-bottom: 1rem;
+    }
+    .hero-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      color: #fff; line-height: 1.12; font-weight: 400; margin-bottom: 1.25rem;
+    }
+    .hero-tagline {
+      font-size: 15px; color: rgba(255,255,255,0.65); line-height: 1.7;
+      max-width: 520px; margin-bottom: 2rem; font-weight: 300;
+    }
+    .hero-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 2.5rem; }
+    .pill {
+      font-size: 11.5px; padding: 5px 14px; border-radius: 20px;
+      border: 1px solid rgba(196,148,58,0.45); color: var(--gold-light);
+      letter-spacing: 0.04em; font-weight: 400;
+    }
+    .hero-cta { display: flex; gap: 12px; }
+    .btn-primary {
+      display: inline-block; font-size: 13px; padding: 10px 24px; border-radius: 4px;
+      background: var(--gold); color: var(--navy); font-weight: 500;
+      text-decoration: none; letter-spacing: 0.04em; transition: background 0.2s;
+      cursor: pointer; border: none;
+    }
+    .btn-primary:hover { background: var(--gold-light); }
+    .btn-outline {
+      display: inline-block; font-size: 13px; padding: 10px 24px; border-radius: 4px;
+      border: 1px solid rgba(255,255,255,0.3); color: #fff;
+      text-decoration: none; letter-spacing: 0.04em; transition: border-color 0.2s;
+      cursor: pointer; background: transparent;
+    }
+    .btn-outline:hover { border-color: rgba(255,255,255,0.7); }
+
+    .hero-monogram {
+      width: 180px; height: 180px; border-radius: 50%;
+      border: 1px solid rgba(196,148,58,0.25);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; position: relative;
+    }
+    .hero-monogram::before {
+      content: '';
+      position: absolute; inset: 8px; border-radius: 50%;
+      border: 1px solid rgba(196,148,58,0.12);
+    }
+    .hero-monogram-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 52px; font-weight: 400;
+      color: rgba(196,148,58,0.18);
+      letter-spacing: 0.04em; user-select: none;
+    }
+
+    /* STATS BAR */
+    .stats-bar {
+      background: var(--navy-mid);
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .stats-bar-inner {
+      max-width: 1100px; margin: 0 auto; padding: 1.25rem 2.5rem;
+      display: grid; grid-template-columns: repeat(3, 1fr);
+    }
+    .stat {
+      text-align: center; padding: 0.5rem;
+      border-right: 1px solid rgba(255,255,255,0.08);
+    }
+    .stat:last-child { border-right: none; }
+    .stat-label-main { font-size: 13px; color: rgba(255,255,255,0.75); font-weight: 400; }
+    .stat-sub {
+      font-size: 11px; color: rgba(255,255,255,0.4);
+      letter-spacing: 0.08em; text-transform: uppercase; margin-top: 3px;
+    }
+
+    /* MAIN */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 2.5rem; }
+    section { padding: 4rem 0; border-bottom: 1px solid var(--border); }
+    section:last-child { border-bottom: none; }
+
+    .section-label {
+      font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--gold); font-weight: 500; margin-bottom: 0.5rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 400;
+      color: var(--navy); margin-bottom: 2rem; line-height: 1.2;
+    }
+
+    /* ABOUT */
+    .about-grid { display: grid; grid-template-columns: 3fr 2fr; gap: 4rem; align-items: start; }
+    .about-text p { font-size: 15px; color: var(--text-mid); line-height: 1.8; margin-bottom: 1rem; font-weight: 300; }
+    .about-text p:last-child { margin-bottom: 0; }
+    .about-sidebar { display: flex; flex-direction: column; gap: 1.25rem; }
+    .sidebar-card {
+      background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 1.25rem;
+    }
+    .sidebar-card-title {
+      font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--text-muted); margin-bottom: 0.75rem; font-weight: 500;
+    }
+    .sidebar-item { display: flex; gap: 10px; margin-bottom: 0.6rem; align-items: flex-start; }
+    .sidebar-item:last-child { margin-bottom: 0; }
+    .sidebar-dot {
+      width: 6px; height: 6px; border-radius: 50%; background: var(--gold);
+      flex-shrink: 0; margin-top: 7px;
+    }
+    .sidebar-item-text { font-size: 13.5px; color: var(--text-dark); line-height: 1.5; }
+    .sidebar-item-sub { font-size: 12px; color: var(--text-muted); }
+    .divider-line { width: 40px; height: 2px; background: var(--gold); margin-top: 1.5rem; }
+
+    /* EXPERTISE */
+    .expertise-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+    .expertise-card {
+      background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem;
+    }
+    .expertise-icon {
+      width: 38px; height: 38px; background: rgba(196,148,58,0.1);
+      border-radius: 8px; display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1rem;
+    }
+    .expertise-icon svg { width: 18px; height: 18px; }
+    .expertise-card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 15px; font-weight: 500; color: var(--navy); margin-bottom: 0.5rem;
+    }
+    .expertise-card-text { font-size: 13px; color: var(--text-muted); line-height: 1.7; font-weight: 300; }
+
+    /* PUBLICATIONS */
+    .pub-filter { display: flex; gap: 8px; margin-bottom: 2rem; flex-wrap: wrap; }
+    .pub-filter-btn {
+      font-size: 12px; padding: 6px 16px; border-radius: 20px;
+      border: 1px solid var(--border); background: #fff;
+      color: var(--text-muted); cursor: pointer; font-weight: 400;
+      transition: all 0.15s; font-family: 'DM Sans', sans-serif;
+    }
+    .pub-filter-btn.active, .pub-filter-btn:hover {
+      background: var(--navy); color: #fff; border-color: var(--navy);
+    }
+    .pub-list { display: flex; flex-direction: column; gap: 12px; }
+    .pub-item {
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 1.25rem 1.5rem; display: grid; grid-template-columns: 44px 1fr;
+      gap: 1rem; align-items: start; transition: border-color 0.2s;
+    }
+    .pub-item:hover { border-color: rgba(196,148,58,0.5); }
+    .pub-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px; color: var(--gold); font-weight: 400; padding-top: 2px;
+    }
+    .pub-title { font-size: 14px; font-weight: 500; color: var(--navy); line-height: 1.5; margin-bottom: 4px; }
+    .pub-title a { color: inherit; text-decoration: none; }
+    .pub-title a:hover { color: var(--gold); }
+    .pub-meta { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
+    .pub-badge {
+      display: inline-block; font-size: 10px; padding: 2px 8px; border-radius: 3px;
+      font-weight: 500; margin-left: 6px; vertical-align: middle; letter-spacing: 0.04em;
+    }
+    .badge-nature { background: #e8f4f8; color: #1a6b8a; }
+    .badge-comm { background: #f0f4e8; color: #3a6b1a; }
+    .badge-nar { background: #f4eaf8; color: #6b1a8a; }
+    .pub-footer { margin-top: 1.5rem; font-size: 13px; color: var(--text-muted); }
+    .pub-footer a { color: var(--gold); text-decoration: none; }
+    .pub-footer a:hover { text-decoration: underline; }
+
+    /* CONTACT */
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+    .contact-intro { font-size: 15px; color: var(--text-mid); line-height: 1.8; font-weight: 300; margin-bottom: 1.5rem; }
+    .contact-links { display: flex; flex-direction: column; gap: 12px; }
+    .contact-link {
+      display: flex; align-items: center; gap: 12px; font-size: 14px;
+      color: var(--text-dark); text-decoration: none;
+      padding: 12px 16px; background: #fff; border: 1px solid var(--border);
+      border-radius: 8px; transition: border-color 0.2s;
+    }
+    .contact-link:hover { border-color: var(--gold); color: var(--navy); }
+    .contact-link-icon {
+      width: 32px; height: 32px; border-radius: 6px;
+      background: rgba(196,148,58,0.1); display: flex; align-items: center;
+      justify-content: center; flex-shrink: 0;
+    }
+    .contact-link-icon svg { width: 15px; height: 15px; }
+    .contact-form-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px; color: var(--navy); margin-bottom: 1.25rem;
+    }
+    .form-row { margin-bottom: 12px; }
+    .form-row input, .form-row textarea {
+      width: 100%; padding: 10px 14px; border-radius: 6px;
+      border: 1px solid var(--border); font-size: 13.5px;
+      font-family: 'DM Sans', sans-serif; background: #fff; color: var(--text-dark);
+      outline: none; transition: border-color 0.2s;
+    }
+    .form-row input:focus, .form-row textarea:focus { border-color: var(--gold); }
+    .form-row textarea { height: 100px; resize: none; }
+
+    /* FOOTER */
+    footer {
+      background: var(--navy); padding: 2rem 2.5rem;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .footer-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 16px; color: rgba(255,255,255,0.6);
+    }
+    .footer-note { font-size: 12px; color: rgba(255,255,255,0.35); }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-monogram { display: none; }
+      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .expertise-grid { grid-template-columns: 1fr 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .stats-bar-inner { grid-template-columns: 1fr; }
+      .stat { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+      .stat:last-child { border-bottom: none; }
+      nav { padding: 0 1.25rem; }
+      .nav-links { gap: 1rem; }
+      .container { padding: 0 1.25rem; }
+      .hero { padding: 3rem 1.25rem 2.5rem; }
+    }
+    @media (max-width: 480px) {
+      .expertise-grid { grid-template-columns: 1fr; }
+      .nav-links a { font-size: 11px; letter-spacing: 0.04em; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Deepak Kumar <span>Jha</span></div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#expertise">Expertise</a>
+    <a href="#publications">Publications</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero-bg">
+  <div class="hero">
+    <div>
+      <div class="hero-eyebrow">Biomedical Scientist · Investor · Drug Developer</div>
+      <h1 class="hero-name">Deepak<br>Kumar Jha</h1>
+      <p class="hero-tagline">Bridging fundamental molecular science and biopharma innovation, from epigenetics and stem cell biology to Alzheimer's disease, IBD, neuroimmunology, and venture-backed drug development.</p>
+      <div class="hero-pills">
+        <span class="pill">Epigenetics</span>
+        <span class="pill">Alzheimer's Disease</span>
+        <span class="pill">Neuroimmunology</span>
+        <span class="pill">Cancer Genomics</span>
+        <span class="pill">Autoimmunity</span>
+        <span class="pill">Human Genetics</span>
+        <span class="pill">Venture Capital</span>
+        <span class="pill">IBD</span>
+      </div>
+      <div class="hero-cta">
+        <a class="btn-primary" href="#publications">View Publications</a>
+        <a class="btn-outline" href="#contact">Get in Touch</a>
+      </div>
+    </div>
+    <div class="hero-monogram">
+      <span class="hero-monogram-text">DJ</span>
+    </div>
+  </div>
+
+  <div class="stats-bar">
+    <div class="stats-bar-inner">
+      <div class="stat">
+        <div class="stat-label-main">1,556+ Citations</div>
+        <div class="stat-sub">Google Scholar</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label-main">Harvard · UNC · AIIMS</div>
+        <div class="stat-sub">Training</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label-main">15+ Years Research</div>
+        <div class="stat-sub">Biopharma and Academia</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="container">
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-label">Background</div>
+    <h2 class="section-title">About Me</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>I am a biomedical scientist in the US biopharma industry working in Alzheimer's Disease and Inflammatory Bowel Disease. Prior to my current role, I was a post-doctoral fellow with Dr. George Q. Daley, Dean of Harvard Medical School and Professor in the Stem Cell Program at Boston Children's Hospital.</p>
+        <p>My scientific interests encompass how cells receive, process, and respond to intrinsic and extrinsic signals, with particular focus on the fine-tuning of temporal and spatial control over gene expression through chromatin structure and function. I investigate how DNA and histone modifications, transcription factors, and signaling molecules collectively govern cell fates. This field is broadly defined as epigenetics.</p>
+        <p>Over the years, I have developed deep expertise in human genetics, genome-wide association studies, neuroimmunology, autoimmunity, and applications of machine learning in target discovery and validation. I deploy a diverse toolkit of model systems: human cell lines, iPSCs, mice, primary patient-derived cells, and organs-on-chips.</p>
+        <p>Beyond scientific R&amp;D, I am actively engaged in the business of biopharma, including venture-backed company creation, venture capital, and business development.</p>
+        <div class="divider-line"></div>
+      </div>
+      <div class="about-sidebar">
+        <div class="sidebar-card">
+          <div class="sidebar-card-title">Education</div>
+          <div class="sidebar-item">
+            <div class="sidebar-dot"></div>
+            <div>
+              <div class="sidebar-item-text">Ph.D. Biochemistry and Biophysics</div>
+              <div class="sidebar-item-sub">University of North Carolina, Chapel Hill · 2009 to 2014</div>
+            </div>
+          </div>
+          <div class="sidebar-item">
+            <div class="sidebar-dot"></div>
+            <div>
+              <div class="sidebar-item-text">M.Sc. Life Sciences</div>
+              <div class="sidebar-item-sub">Jawaharlal Nehru University, New Delhi</div>
+            </div>
+          </div>
+          <div class="sidebar-item">
+            <div class="sidebar-dot"></div>
+            <div>
+              <div class="sidebar-item-text">B.Sc. Human Biology (Biochemistry)</div>
+              <div class="sidebar-item-sub">AIIMS, New Delhi, India</div>
+            </div>
+          </div>
+        </div>
+        <div class="sidebar-card">
+          <div class="sidebar-card-title">Positions Held</div>
+          <div class="sidebar-item">
+            <div class="sidebar-dot"></div>
+            <div>
+              <div class="sidebar-item-text">Scientist, Merck</div>
+              <div class="sidebar-item-sub">US Biopharma · Current</div>
+            </div>
+          </div>
+          <div class="sidebar-item">
+            <div class="sidebar-dot"></div>
+            <div>
+              <div class="sidebar-item-text">Post-Doctoral Fellow</div>
+              <div class="sidebar-item-sub">Harvard Medical School / Boston Children's Hospital</div>
+            </div>
+          </div>
+          <div class="sidebar-item">
+            <div class="sidebar-dot"></div>
+            <div>
+              <div class="sidebar-item-text">Graduate Researcher</div>
+              <div class="sidebar-item-sub">Strahl Lab, UNC Chapel Hill</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERTISE -->
+  <section id="expertise">
+    <div class="section-label">Core Competencies</div>
+    <h2 class="section-title">Areas of Expertise</h2>
+    <div class="expertise-grid">
+
+      <div class="expertise-card">
+        <div class="expertise-icon">
+          <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="9" cy="9" r="3" stroke="#C4943A" stroke-width="1.5"/>
+            <path d="M9 2v2M9 14v2M2 9h2M14 9h2" stroke="#C4943A" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M4.1 4.1l1.4 1.4M12.5 12.5l1.4 1.4M4.1 13.9l1.4-1.4M12.5 5.5l1.4-1.4" stroke="#C4943A" stroke-width="1.2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="expertise-card-title">Epigenetics and Chromatin Biology</div>
+        <div class="expertise-card-text">Histone modifications, DNA methylation, chromatin remodeling, transcriptional regulation, and the molecular mechanisms governing gene expression and genome integrity.</div>
+      </div>
+
+      <div class="expertise-card">
+        <div class="expertise-icon">
+          <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 15 C3 15 5 10 9 9 C13 8 15 3 15 3" stroke="#C4943A" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="9" cy="9" r="1.5" fill="#C4943A"/>
+            <circle cx="4" cy="14" r="1.5" fill="#C4943A"/>
+            <circle cx="14" cy="4" r="1.5" fill="#C4943A"/>
+          </svg>
+        </div>
+        <div class="expertise-card-title">Neuroimmunology and Neurodegeneration</div>
+        <div class="expertise-card-text">Alzheimer's disease biology, neuro-inflammation, immune mechanisms in the CNS, and therapeutic target identification for neurological diseases.</div>
+      </div>
+
+      <div class="expertise-card">
+        <div class="expertise-icon">
+          <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="2" width="14" height="14" rx="3" stroke="#C4943A" stroke-width="1.5"/>
+            <path d="M5 9h8M5 6h5M5 12h6" stroke="#C4943A" stroke-width="1.2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="expertise-card-title">Cancer Genomics and Autoimmunity</div>
+        <div class="expertise-card-text">Cancer predisposition, tumor biology, autoimmune disease mechanisms, and IBD, from molecular target identification to translational therapeutic strategy.</div>
+      </div>
+
+      <div class="expertise-card">
+        <div class="expertise-icon">
+          <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 15 L6 10 L9 12 L12 7 L15 3" stroke="#C4943A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="6" cy="10" r="1.2" fill="#C4943A"/>
+            <circle cx="9" cy="12" r="1.2" fill="#C4943A"/>
+            <circle cx="12" cy="7" r="1.2" fill="#C4943A"/>
+          </svg>
+        </div>
+        <div class="expertise-card-title">Human Genetics and Genomics</div>
+        <div class="expertise-card-text">GWAS, human knock-outs, population genetics, and machine learning applications for target discovery and validation in complex human diseases.</div>
+      </div>
+
+      <div class="expertise-card">
+        <div class="expertise-icon">
+          <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9 2 L16 6 L16 12 L9 16 L2 12 L2 6 Z" stroke="#C4943A" stroke-width="1.5" stroke-linejoin="round"/>
+            <path d="M9 2 L9 16M2 6 L16 6M2 12 L16 12" stroke="#C4943A" stroke-width="0.8" stroke-dasharray="2 1.5"/>
+          </svg>
+        </div>
+        <div class="expertise-card-title">Stem Cell Biology and Model Systems</div>
+        <div class="expertise-card-text">iPSCs, hematopoietic stem cell specification, primary patient-derived cells, mouse models, and microphysiological organ-on-chip platforms.</div>
+      </div>
+
+      <div class="expertise-card">
+        <div class="expertise-icon">
+          <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="5" cy="9" r="3" stroke="#C4943A" stroke-width="1.5"/>
+            <circle cx="13" cy="9" r="3" stroke="#C4943A" stroke-width="1.5"/>
+            <path d="M8 9 L10 9" stroke="#C4943A" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="expertise-card-title">Biopharma Strategy and Investment</div>
+        <div class="expertise-card-text">Venture-backed company creation, venture capital, business development, and strategic positioning at the intersection of science and commercial biopharma.</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PUBLICATIONS -->
+  <section id="publications">
+    <div class="section-label">Scientific Output</div>
+    <h2 class="section-title">Selected Publications</h2>
+    <div class="pub-filter">
+      <button class="pub-filter-btn active" onclick="filterPubs('all', this)">All</button>
+      <button class="pub-filter-btn" onclick="filterPubs('nature', this)">Nature / High-Impact</button>
+      <button class="pub-filter-btn" onclick="filterPubs('hema', this)">Hematopoiesis</button>
+      <button class="pub-filter-btn" onclick="filterPubs('epig', this)">Epigenetics</button>
+    </div>
+    <div class="pub-list" id="pubList"></div>
+    <p class="pub-footer">
+      Full list on <a href="https://scholar.google.com/citations?user=t-Y_awYAAAAJ&hl=en" target="_blank">Google Scholar</a> and <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%28%28Deepak+Jha+AND+Chapel+Hill+%5BAffiliation%5D%29%29+OR+%28Jha+AND+Daley%29+NOT+%28CoV-2+OR+COVID-19%29+NOT+%28Jha%2C+A%29+NOT+%28iga+nephropathy%29&sort=date" target="_blank">PubMed</a>.
+    </p>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-label">Get in Touch</div>
+    <h2 class="section-title">Contact</h2>
+    <div class="contact-grid">
+      <div>
+        <p class="contact-intro">I am open to conversations around biopharma partnerships, scientific collaboration, investment opportunities, and advisory roles.</p>
+        <div class="contact-links">
+          <a class="contact-link" href="mailto:kumar.deepak.j@gmail.com">
+            <div class="contact-link-icon">
+              <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="1" y="3" width="13" height="9" rx="1.5" stroke="#C4943A" stroke-width="1.2"/>
+                <path d="M1 4.5 L7.5 9 L14 4.5" stroke="#C4943A" stroke-width="1.2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            kumar.deepak.j@gmail.com
+          </a>
+          <a class="contact-link" href="https://www.linkedin.com/in/deepak-jha-b25a7212/" target="_blank">
+            <div class="contact-link-icon">
+              <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="1" y="1" width="13" height="13" rx="2" stroke="#C4943A" stroke-width="1.2"/>
+                <path d="M4 6v5M4 4.5v.01" stroke="#C4943A" stroke-width="1.3" stroke-linecap="round"/>
+                <path d="M7.5 11V8.5c0-1.1.9-2 2-2s2 .9 2 2V11" stroke="#C4943A" stroke-width="1.2" stroke-linecap="round"/>
+                <path d="M7.5 6v5" stroke="#C4943A" stroke-width="1.2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            LinkedIn Profile
+          </a>
+          <a class="contact-link" href="https://scholar.google.com/citations?user=t-Y_awYAAAAJ&hl=en" target="_blank">
+            <div class="contact-link-icon">
+              <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 4 L7.5 8 L14 4" stroke="#C4943A" stroke-width="1.2" stroke-linecap="round"/>
+                <path d="M7.5 8 L7.5 14" stroke="#C4943A" stroke-width="1.2" stroke-linecap="round"/>
+                <path d="M12 5.5 L12 10 C12 10 10.5 12 7.5 12 C4.5 12 3 10 3 10 L3 5.5" stroke="#C4943A" stroke-width="1.1" stroke-linecap="round"/>
+              </svg>
+            </div>
+            Google Scholar
+          </a>
+        </div>
+      </div>
+      <div>
+        <div class="contact-form-title">Send a message</div>
+        <div class="form-row"><input type="text" placeholder="Your name" /></div>
+        <div class="form-row"><input type="email" placeholder="Email address" /></div>
+        <div class="form-row"><input type="text" placeholder="Subject" /></div>
+        <div class="form-row"><textarea placeholder="Your message..."></textarea></div>
+        <button class="btn-primary" style="width: 100%;">Send Message</button>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-name">Deepak Kumar Jha</div>
+  <div class="footer-note">Biomedical Scientist · Investor · Drug Developer</div>
+</footer>
+
+<script>
+  const pubs = [
+    { num:1, title:"LIN28B alters ribosomal dynamics to promote metastasis in MYCN-driven malignancy", authors:"Missios P, Lummertz da Rocha E, Pearson DS, … Jha DK, … Daley GQ", journal:"Journal of Clinical Investigation", tags:["hema"], badge:"", href:"https://dm5migu4zj3pb.cloudfront.net/manuscripts/145000/145142/JCI145142.v1.pdf" },
+    { num:2, title:"Transcriptome Dynamics of Hematopoietic Stem Cell Formation Revealed Using a Combinatorial Runx1 and Ly6a Reporter System", authors:"Chen MJ, Lummertz da Rocha E, … Jha DK, … Daley GQ", journal:"Stem Cell Reports · 2020", tags:["hema"], badge:"", href:"https://pubmed.ncbi.nlm.nih.gov/32302558/" },
+    { num:3, title:"The developmental stage of the hematopoietic niche regulates lineage in MLL-rearranged leukemia", authors:"Rowe RG, Lummertz da Rocha E, … Jha DK, … Daley GQ", journal:"J Exp Med · 2019", tags:["hema"], badge:"", href:"https://pubmed.ncbi.nlm.nih.gov/30728174/" },
+    { num:4, title:"Reconstruction of complex single-cell trajectories using CellRouter", authors:"Lummertz da Rocha E, Rowe RG, … Jha DK, … Daley GQ", journal:"Nature Communications · 2018", tags:["hema","nature"], badge:"comm", href:"https://pubmed.ncbi.nlm.nih.gov/29497036/" },
+    { num:5, title:"Regulation of embryonic haematopoietic multipotency by EZH1", authors:"Vo LT, Kinney MA, … Jha DK, … Daley GQ", journal:"Nature · 2018", tags:["hema","nature","epig"], badge:"nature", href:"https://pubmed.ncbi.nlm.nih.gov/29342143/" },
+    { num:6, title:"Set2 methyltransferase facilitates cell cycle progression by maintaining transcriptional fidelity", authors:"Dronamraju R, Jha DK, Eser U, … Strahl BD", journal:"Nucleic Acids Research · 2018", tags:["epig"], badge:"nar", href:"https://pubmed.ncbi.nlm.nih.gov/29294086/" },
+    { num:7, title:"Redundant Functions for Nap1 and Chz1 in H2A.Z Deposition", authors:"Dronamraju R, Ramachandran S, Jha DK, … Strahl BD", journal:"Scientific Reports · 2017", tags:["epig"], badge:"", href:"https://pubmed.ncbi.nlm.nih.gov/28883625/" },
+    { num:8, title:"Haematopoietic stem and progenitor cells from human pluripotent stem cells", authors:"Sugimura R*, Jha DK*, Han A, … Daley GQ", journal:"Nature · 2017", tags:["hema","nature"], badge:"nature", href:"https://pubmed.ncbi.nlm.nih.gov/28514439/" },
+    { num:9, title:"Structure/Function Analysis of Recurrent Mutations in SETD2 Protein Reveals a Critical Role for H3K36 Trimethylation", authors:"Hacker KE, Fahey CC, … Jha DK, … Strahl BD, Rathmell WK", journal:"J Biol Chemistry · 2016", tags:["epig"], badge:"", href:"https://pubmed.ncbi.nlm.nih.gov/27528607/" },
+    { num:10, title:"A high-resolution transcriptome map of cell cycle reveals novel connections between periodic genes and cancer", authors:"Dominguez D, Tsai YH, … Jha DK, Davis I, Wang Z", journal:"Cell Research · 2016", tags:["epig"], badge:"", href:"https://pubmed.ncbi.nlm.nih.gov/27364684/" },
+    { num:11, title:"Histone H3K36 methylation regulates pre-mRNA splicing in Saccharomyces cerevisiae", authors:"Sorenson MR, Jha DK, … Strahl BD, Stevens SW, Kress TL", journal:"RNA Biology · 2016", tags:["epig"], badge:"", href:"https://pubmed.ncbi.nlm.nih.gov/26821844/" },
+    { num:12, title:"Association of Taf14 with acetylated histone H3 directs gene transcription and the DNA damage response", authors:"Shanle EK, Andrews FH, … Jha D, … Strahl BD", journal:"Genes and Development · 2015", tags:["epig"], badge:"", href:"https://pubmed.ncbi.nlm.nih.gov/26341557/" },
+    { num:13, title:"SET-ting the stage for DNA repair", authors:"Jha DK, Pfister SX, Humphrey TC, Strahl BD", journal:"Nat Struct Mol Biol · 2014", tags:["epig","nature"], badge:"nature", href:"https://pubmed.ncbi.nlm.nih.gov/25093525/" },
+    { num:14, title:"An RNA polymerase II-coupled function for histone H3K36 methylation in checkpoint activation and DSB repair", authors:"Jha DK, Strahl BD", journal:"Nature Communications · 2014", tags:["epig","nature"], badge:"comm", href:"https://pubmed.ncbi.nlm.nih.gov/24910128/" },
+  ];
+
+  function badgeHtml(b) {
+    if (!b) return '';
+    if (b === 'nature') return '<span class="pub-badge badge-nature">Nature</span>';
+    if (b === 'comm') return '<span class="pub-badge badge-comm">Nat Comms</span>';
+    if (b === 'nar') return '<span class="pub-badge badge-nar">NAR</span>';
+    return '';
+  }
+
+  function renderPubs(filter) {
+    const list = document.getElementById('pubList');
+    const items = filter === 'all' ? pubs : pubs.filter(p => p.tags.includes(filter));
+    list.innerHTML = items.map(p => `
+      <div class="pub-item">
+        <div class="pub-num">${p.num}</div>
+        <div>
+          <div class="pub-title"><a href="${p.href}" target="_blank">${p.title}</a>${badgeHtml(p.badge)}</div>
+          <div class="pub-meta">${p.authors} · ${p.journal}</div>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  function filterPubs(filter, btn) {
+    document.querySelectorAll('.pub-filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderPubs(filter);
+  }
+
+  renderPubs('all');
+</script>
+
+</body>
+</html>
